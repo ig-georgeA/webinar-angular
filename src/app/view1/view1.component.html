@@ -1,0 +1,40 @@
+<div class="column-layout group">
+  <igx-list class="list">
+    <igx-list-item [isHeader]="false" *ngFor="let item of northwindEmployees">
+      <span igxListThumbnail>
+        <igx-avatar [src]="item.avatarUrl" [roundShape]="true"></igx-avatar>
+      </span>
+      <span igxListLineTitle>{{ item.lastName }}</span>
+      <span igxListLineSubTitle>{{ item.title }}</span>
+      <span igxListAction>
+        <igx-icon class="icon">
+          star
+        </igx-icon>
+      </span>
+    </igx-list-item>
+  </igx-list>
+</div>
+<div class="column-layout group_1">
+  <div class="column-layout group_2">
+    <igx-grid [data]="northwindEmployees" primaryKey="employeeID" displayDensity="cosy" rowSelection="multiple" [rowEditable]="true" [allowFiltering]="true" filterMode="excelStyleFilter" class="grid">
+      <igx-column header="employeeID" field="employeeID" dataType="number" [sortable]="true" [groupable]="true" [editable]="true" title="employeeID"></igx-column>
+      <igx-column header="lastName" field="lastName" dataType="string" [sortable]="true" [groupable]="true" [editable]="true" title="lastName"></igx-column>
+      <igx-column header="firstName" field="firstName" dataType="string" [sortable]="true" [groupable]="true" [editable]="true" title="firstName"></igx-column>
+      <igx-column header="title" field="title" dataType="string" [sortable]="true" [groupable]="true" [editable]="true" title="title"></igx-column>
+      <igx-column header="titleOfCourtesy" field="titleOfCourtesy" dataType="string" [sortable]="true" [groupable]="true" [editable]="true" title="titleOfCourtesy"></igx-column>
+      <igx-column header="birthDate" field="birthDate" dataType="date" [sortable]="true" [groupable]="true" [editable]="true" title="birthDate"></igx-column>
+      <igx-column header="hireDate" field="hireDate" dataType="date" [sortable]="true" [groupable]="true" [editable]="true" title="hireDate"></igx-column>
+      <igx-column header="street" field="address.street" dataType="string" [sortable]="true" [groupable]="true" [editable]="true" title="address.street"></igx-column>
+      <igx-column header="city" field="address.city" dataType="string" [sortable]="true" [groupable]="true" [editable]="true" title="address.city"></igx-column>
+      <igx-column header="region" field="address.region" dataType="string" [sortable]="true" [groupable]="true" [editable]="true" title="address.region"></igx-column>
+      <igx-column header="postalCode" field="address.postalCode" dataType="string" [sortable]="true" [groupable]="true" [editable]="true" title="address.postalCode"></igx-column>
+      <igx-column header="country" field="address.country" dataType="string" [sortable]="true" [groupable]="true" [editable]="true" title="address.country"></igx-column>
+      <igx-column header="phone" field="address.phone" dataType="string" [sortable]="true" [groupable]="true" [editable]="true" title="address.phone"></igx-column>
+      <igx-column header="notes" field="notes" dataType="string" [sortable]="true" [groupable]="true" [editable]="true" title="notes"></igx-column>
+      <igx-column header="avatarUrl" field="avatarUrl" dataType="string" [sortable]="true" [groupable]="true" [editable]="true" title="avatarUrl"></igx-column>
+    </igx-grid>
+  </div>
+  <div class="column-layout group_2">
+    <igx-category-chart [dataSource]="financialBoxOfficeRevenue" computedPlotAreaMarginMode="series" class="category-chart"></igx-category-chart>
+  </div>
+</div>
